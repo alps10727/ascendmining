@@ -1,0 +1,241 @@
+<!doctype html>
+<html lang="tr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="theme-color" content="#0b0b0f" />
+  <meta name="robots" content="index,follow" />
+  <title>Ascend Mining — Kullanım Koşulları</title>
+  <meta name="description" content="Ascend Mining (ASC) Kullanım Koşulları — sorumluluk reddi, hesap kuralları, reklam/ödül politikaları, fesih ve uyuşmazlık." />
+
+  <style>
+    :root{
+      --bg:#07070a;
+      --stroke:#ffffff14;
+      --text:#f4f4f6;
+      --muted:#b8b8c2;
+      --gold:#d6b15a;
+      --gold2:#f0d07a;
+      --shadow: 0 20px 60px rgba(0,0,0,.55);
+      --max: 980px;
+      --mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+      --sans: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      font-family:var(--sans);
+      color:var(--text);
+      background:
+        radial-gradient(900px 600px at 10% 0%, rgba(240,208,122,.08), transparent 60%),
+        radial-gradient(1200px 700px at 90% -10%, rgba(214,177,90,.12), transparent 60%),
+        linear-gradient(180deg, var(--bg), #0b0b10);
+      line-height:1.65;
+    }
+    a{color:var(--gold2); text-decoration:none}
+    a:hover{text-decoration:underline}
+    header{
+      position:sticky; top:0; z-index:10;
+      backdrop-filter: blur(12px);
+      background:linear-gradient(180deg, rgba(7,7,10,.78), rgba(7,7,10,.45));
+      border-bottom:1px solid rgba(255,255,255,.08);
+    }
+    .bar{max-width:var(--max); margin:0 auto; padding:14px 18px; display:flex; gap:10px; align-items:center; justify-content:space-between}
+    .brand{display:flex; align-items:center; gap:12px}
+    .logo{
+      width:36px; height:36px; border-radius:12px;
+      background: radial-gradient(circle at 30% 30%, rgba(240,208,122,.95), rgba(214,177,90,.45) 55%, rgba(0,0,0,.2) 100%);
+      border:1px solid rgba(214,177,90,.35);
+      box-shadow: 0 18px 50px rgba(214,177,90,.18);
+      position:relative;
+    }
+    .logo:after{content:""; position:absolute; inset:8px; border-radius:10px; border:1px dashed rgba(255,255,255,.20); opacity:.55}
+    .title b{letter-spacing:.2px}
+    .title small{display:block; color:var(--muted)}
+    .btn{
+      display:inline-flex; align-items:center; justify-content:center;
+      padding:10px 14px; border-radius:14px;
+      border:1px solid rgba(255,255,255,.14);
+      background:rgba(255,255,255,.04);
+      color:var(--text);
+      font-weight:650;
+      transition:.2s transform, .2s background, .2s border;
+      text-decoration:none;
+    }
+    .btn:hover{transform:translateY(-1px); background:rgba(255,255,255,.06); border-color:rgba(255,255,255,.20)}
+    .wrap{max-width:var(--max); margin:0 auto; padding:28px 18px 60px}
+    h1{font-size:34px; margin:22px 0 6px; letter-spacing:-.6px}
+    .sub{color:var(--muted); margin:0 0 18px}
+    .pill{
+      display:inline-flex; gap:10px; align-items:center;
+      padding:10px 12px; border-radius:999px;
+      border:1px solid var(--stroke);
+      background:linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.02));
+      color:var(--muted); font-size:13px;
+    }
+    .dot{width:8px; height:8px; border-radius:50%; background:var(--gold); box-shadow:0 0 18px rgba(214,177,90,.55)}
+    .card{
+      margin-top:14px;
+      padding:18px;
+      border-radius:22px;
+      border:1px solid rgba(255,255,255,.10);
+      background: linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.02));
+      box-shadow: var(--shadow);
+    }
+    h2{font-size:18px; margin:0 0 8px}
+    p,li{color:var(--muted)}
+    ul{margin:10px 0 0; padding-left:18px}
+    .hr{height:1px; background:rgba(255,255,255,.10); margin:14px 0}
+    code{font-family:var(--mono); font-size:12px; color:#dcdce2}
+    .k{font-family:var(--mono); color:var(--gold2); font-size:12px}
+    footer{margin-top:18px; color:var(--muted); font-size:13px}
+  </style>
+</head>
+
+<body>
+<header>
+  <div class="bar">
+    <div class="brand">
+      <span class="logo" aria-hidden="true"></span>
+      <div class="title">
+        <b>Ascend Mining</b>
+        <small>Kullanım Koşulları</small>
+      </div>
+    </div>
+    <a class="btn" href="/">Ana Sayfa</a>
+  </div>
+</header>
+
+<main class="wrap">
+  <span class="pill"><span class="dot"></span> Geliştiriciyi koruyan • Play Store uyumlu • Tek sayfa</span>
+  <h1>Kullanım Koşulları</h1>
+  <p class="sub"><span class="k">Son Güncelleme:</span> <span id="date"></span> • Bu sayfa: <code>/terms.html</code></p>
+
+  <div class="card">
+    <h2>1) Kabul</h2>
+    <p>
+      Bu Kullanım Koşulları (“Koşullar”), <b>Ascend Mining</b> uygulamasını ve ilişkili web sayfalarını (“Hizmet”)
+      kullanımınızı düzenler. Hizmeti kullanarak bu Koşulları kabul etmiş olursunuz.
+      Koşulları kabul etmiyorsanız Hizmeti kullanmamalısınız.
+    </p>
+  </div>
+
+  <div class="card">
+    <h2>2) Hizmetin Niteliği</h2>
+    <ul>
+      <li>Ascend Mining bir <b>mobil uygulama deneyimi</b> sunar. Uygulama içi “madencilik/ödül” ifadeleri oyunlaştırılmış kazanımları temsil edebilir.</li>
+      <li>Hizmet; bakım, güncelleme, güvenlik veya performans gerekçeleriyle <b>geçici olarak durdurulabilir</b> veya değiştirilebilir.</li>
+      <li>Hizmet kapsamındaki içerikler, özellikler ve ödül mekanikleri <b>önceden bildirim olmaksızın</b> değiştirilebilir.</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <h2>3) Uygun Kullanım Kuralları (Abuse / Hile)</h2>
+    <p>Hizmeti kullanırken aşağıdakiler yasaktır:</p>
+    <ul>
+      <li>Hile, otomasyon, bot, exploit, tersine mühendislik veya güvenlik açıklarını kullanma</li>
+      <li>Birden fazla hesapla sistemi manipüle etme, sahte cihaz/kimlik kullanma</li>
+      <li>Reklamları/ödülleri yapay olarak artırmaya yönelik davranışlar</li>
+      <li>Hizmeti kesintiye uğratma, zarar verme, izinsiz erişim girişimleri</li>
+    </ul>
+    <div class="hr"></div>
+    <p>
+      Şüpheli veya ihlal teşkil eden davranışlarda; <b>ödülleri iptal etme, hesap kısıtlama/askıya alma, kalıcı kapatma</b>
+      ve gerekli görürsek hukuki yollara başvurma hakkımız saklıdır.
+    </p>
+  </div>
+
+  <div class="card">
+    <h2>4) Ödüller, Ekonomi ve Dengeleme</h2>
+    <ul>
+      <li>Ödüller/puanlar/uygulama içi kazanımlar, teknik hatalar veya sistem güncellemeleri nedeniyle değişebilir.</li>
+      <li>Ödül oranları, süreler, çarpanlar, görev bonusları ve benzeri mekanikler <b>dengelemek</b> amacıyla güncellenebilir.</li>
+      <li>Teknik arıza, kesinti, senkronizasyon hatası veya kötüye kullanım şüphesi halinde ödül hesaplaması yeniden yapılabilir veya geri alınabilir.</li>
+    </ul>
+    <p class="k">
+      Not: Hizmet, “kesintisiz” veya “hatasız” çalışma garantisi vermez.
+    </p>
+  </div>
+
+  <div class="card">
+    <h2>5) Reklamlar (AdMob) ve Üçüncü Taraflar</h2>
+    <p>
+      Uygulamada <b>Google AdMob</b> gibi üçüncü taraf reklam hizmetleri kullanılabilir. Reklamların gösterimi,
+      uygunluk, doluluk ve içerik türü üçüncü tarafların sistemlerine bağlı olabilir.
+      Üçüncü taraf hizmetlerin kullanımı kendi koşul ve politikalarına tabidir.
+    </p>
+    <p>
+      Ayrıca üçüncü taraf bağlantılar (web siteleri, sosyal medya, topluluk kanalları vb.) sunulabilir.
+      Bu bağlantılardaki içeriklerden sorumlu değiliz.
+    </p>
+  </div>
+
+  <div class="card">
+    <h2>6) Fikri Mülkiyet</h2>
+    <p>
+      Uygulama, marka, logo, metinler, tasarım ve tüm içerikler bize veya lisans sağlayıcılarımıza aittir.
+      Yazılı izin olmadan kopyalanamaz, dağıtılamaz veya ticari amaçla kullanılamaz.
+    </p>
+  </div>
+
+  <div class="card">
+    <h2>7) Sorumluluk Reddi (Önemli)</h2>
+    <ul>
+      <li>Hizmet <b>“olduğu gibi”</b> ve <b>“mevcut haliyle”</b> sunulur. Açık veya zımni hiçbir garanti verilmez.</li>
+      <li>Kesinti, veri kaybı, gelir kaybı, beklenen kazanç kaybı, itibar kaybı gibi dolaylı zararlardan sorumlu tutulamayız.</li>
+      <li>Uygulama içi ödüller ve deneyim unsurları, ülkeden ülkeye değişen mevzuatlara tabidir; kullanıcı, kendi bölgesindeki kurallara uymaktan sorumludur.</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <h2>8) Hesabın Askıya Alınması / Fesih</h2>
+    <p>
+      Bu Koşulların ihlali, kötüye kullanım şüphesi, güvenlik riski veya yasal zorunluluk halinde,
+      hesabınızı <b>askıya alma</b> veya <b>kalıcı kapatma</b> hakkımız saklıdır.
+      Hesap kapatma durumunda uygulama içi kazanımların/ödüllerin bir kısmı veya tamamı iptal edilebilir.
+    </p>
+  </div>
+
+  <div class="card">
+    <h2>9) Değişiklikler</h2>
+    <p>
+      Koşulları dilediğimiz zaman güncelleyebiliriz. Güncel sürüm bu sayfada yayınlanır.
+      Hizmeti kullanmaya devam etmeniz, güncellenmiş koşulları kabul ettiğiniz anlamına gelir.
+    </p>
+  </div>
+
+  <div class="card">
+    <h2>10) Uygulanacak Hukuk ve Yetki</h2>
+    <p>
+      Bu Koşullar, yürürlükteki mevzuata tabidir. Uyuşmazlıklarda yetkili mahkeme ve icra daireleri,
+      mevzuatın izin verdiği ölçüde <b>geliştiricinin yerleşim yerindeki</b> yargı mercileri olabilir.
+    </p>
+    <p class="k">
+      İstersen burayı netleştirelim: “Türkiye, Muğla” gibi yazabiliriz.
+    </p>
+  </div>
+
+  <div class="card">
+    <h2>11) İletişim</h2>
+    <ul>
+      <li><b>E-posta:</b> <a href="mailto:support@ascendcoin.app">support@ascendcoin.app</a></li>
+      <li><b>Web:</b> <a href="https://ascendcoin.app">https://ascendcoin.app</a></li>
+    </ul>
+  </div>
+
+  <footer>
+    <div class="hr"></div>
+    <p>© <span id="year"></span> Ascend Mining. Tüm hakları saklıdır.</p>
+  </footer>
+</main>
+
+<script>
+  const now = new Date();
+  document.getElementById('year').textContent = now.getFullYear();
+  const dd = String(now.getDate()).padStart(2,'0');
+  const mm = String(now.getMonth()+1).padStart(2,'0');
+  const yyyy = now.getFullYear();
+  document.getElementById('date').textContent = `${dd}.${mm}.${yyyy}`;
+</script>
+</body>
+</html>
