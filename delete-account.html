@@ -1,0 +1,392 @@
+<!doctype html>
+<html lang="tr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Hesap Silme Talebi | Ascend Mining</title>
+  <meta name="description" content="Ascend Mining hesabınızı ve ilişkili verilerinizi silme talebi için yönergeler." />
+  <style>
+    :root{
+      --bg:#0b0b0f;
+      --card:#12121a;
+      --text:#e9e9f1;
+      --muted:#b7b7c6;
+      --accent:#f5c542; /* altın */
+      --border:rgba(245,197,66,.22);
+      --shadow: 0 18px 45px rgba(0,0,0,.45);
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
+      background: radial-gradient(1200px 600px at 20% 10%, rgba(245,197,66,.10), transparent 55%),
+                  radial-gradient(1200px 600px at 80% 0%, rgba(245,197,66,.08), transparent 60%),
+                  var(--bg);
+      color:var(--text);
+      line-height:1.55;
+    }
+    a{color:var(--accent); text-decoration:none}
+    a:hover{text-decoration:underline}
+    .wrap{
+      max-width: 980px;
+      margin: 0 auto;
+      padding: 40px 18px 80px;
+    }
+    .topbar{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:16px;
+      margin-bottom:22px;
+    }
+    .brand{
+      display:flex;
+      align-items:center;
+      gap:12px;
+    }
+    .logo{
+      width:44px;height:44px;border-radius:14px;
+      background: linear-gradient(135deg, rgba(245,197,66,.35), rgba(245,197,66,.08));
+      border:1px solid var(--border);
+      box-shadow: var(--shadow);
+      display:grid;place-items:center;
+      font-weight:800;
+      color:var(--accent);
+      letter-spacing:.5px;
+    }
+    .brand h1{
+      font-size:16px;
+      margin:0;
+      font-weight:700;
+      color:var(--text);
+    }
+    .brand p{
+      margin:2px 0 0;
+      font-size:13px;
+      color:var(--muted);
+    }
+    .lang{
+      display:flex; gap:8px; align-items:center;
+      border:1px solid var(--border);
+      background: rgba(255,255,255,.03);
+      padding:6px;
+      border-radius:14px;
+    }
+    .lang button{
+      border:0;
+      padding:8px 10px;
+      border-radius:10px;
+      background: transparent;
+      color: var(--muted);
+      cursor:pointer;
+      font-weight:600;
+      font-size:13px;
+    }
+    .lang button.active{
+      background: rgba(245,197,66,.18);
+      color: var(--text);
+      outline: 1px solid rgba(245,197,66,.35);
+    }
+    .card{
+      background: linear-gradient(180deg, rgba(255,255,255,.04), rgba(255,255,255,.02));
+      border:1px solid var(--border);
+      border-radius: 22px;
+      padding: 22px;
+      box-shadow: var(--shadow);
+    }
+    .hero{
+      padding: 22px 22px 10px;
+      border-radius: 22px;
+      background: linear-gradient(135deg, rgba(245,197,66,.18), rgba(245,197,66,.03));
+      border: 1px solid rgba(245,197,66,.25);
+      margin-bottom: 18px;
+    }
+    .hero h2{
+      margin:0 0 6px;
+      font-size: 22px;
+      letter-spacing: .2px;
+    }
+    .hero p{
+      margin:0;
+      color: var(--muted);
+      max-width: 75ch;
+    }
+    .grid{
+      display:grid;
+      grid-template-columns: 1.2fr .8fr;
+      gap:16px;
+    }
+    @media (max-width: 840px){
+      .grid{grid-template-columns: 1fr;}
+    }
+    h3{
+      margin:0 0 10px;
+      font-size:16px;
+    }
+    ul{margin:0; padding-left:18px; color:var(--muted)}
+    li{margin:8px 0}
+    .pill{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      padding:10px 12px;
+      border-radius: 14px;
+      border: 1px solid var(--border);
+      background: rgba(0,0,0,.25);
+      color: var(--text);
+      margin: 10px 0 0;
+      width:100%;
+      justify-content:space-between;
+    }
+    .pill code{
+      color: var(--accent);
+      font-weight: 700;
+      font-size: 13px;
+      user-select: all;
+    }
+    .pill button{
+      border:1px solid rgba(245,197,66,.35);
+      background: rgba(245,197,66,.14);
+      color: var(--text);
+      border-radius: 12px;
+      padding: 8px 10px;
+      cursor:pointer;
+      font-weight:700;
+      font-size: 13px;
+    }
+    .note{
+      margin-top: 14px;
+      padding: 12px 14px;
+      border-radius: 16px;
+      border:1px dashed rgba(245,197,66,.35);
+      background: rgba(245,197,66,.07);
+      color: var(--muted);
+      font-size: 13px;
+    }
+    .footer{
+      margin-top: 18px;
+      color: var(--muted);
+      font-size: 12px;
+      display:flex;
+      justify-content:space-between;
+      gap:12px;
+      flex-wrap:wrap;
+    }
+    .hidden{display:none !important;}
+    .muted{color:var(--muted)}
+    .strong{color:var(--text); font-weight:700}
+    .kicker{
+      font-size:12px; color: var(--muted);
+      margin: 0 0 8px;
+      text-transform: uppercase;
+      letter-spacing: .12em;
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <div class="topbar">
+      <div class="brand">
+        <div class="logo">ASC</div>
+        <div>
+          <h1>Ascend Mining</h1>
+          <p>Hesap Silme Talebi / Account Deletion</p>
+        </div>
+      </div>
+
+      <div class="lang" aria-label="Language selector">
+        <button id="btn-tr" class="active" type="button" onclick="setLang('tr')">TR</button>
+        <button id="btn-en" type="button" onclick="setLang('en')">EN</button>
+      </div>
+    </div>
+
+    <!-- TR -->
+    <section id="content-tr" class="card">
+      <div class="hero">
+        <p class="kicker">VERİ GÜVENLİĞİ</p>
+        <h2>Hesap Silme Talebi</h2>
+        <p>
+          Ascend Mining hesabınızı ve ilişkili verilerinizi silmek için aşağıdaki yönergeleri izleyebilirsiniz.
+          Bu sayfa Google Play’in “Hesap silme URL’si” gereksinimi için hazırlanmıştır.
+        </p>
+      </div>
+
+      <div class="grid">
+        <div>
+          <h3>Uygulama içinden silme</h3>
+          <ul>
+            <li><span class="strong">Ayarlar</span> &rarr; <span class="strong">Hesap</span> &rarr; <span class="strong">Hesabı Sil</span> adımlarını izleyin.</li>
+            <li>Silme işlemi tamamlandığında hesabınıza giriş yapılamaz.</li>
+          </ul>
+
+          <div class="note">
+            <span class="strong">Not:</span> Eğer uygulama içinde “Hesabı Sil” özelliği henüz yoksa,
+            aşağıdaki e-posta yöntemi ile talep oluşturabilirsiniz.
+          </div>
+
+          <h3 style="margin-top:16px;">Uygulama dışından silme (e-posta ile)</h3>
+          <ul>
+            <li>Aşağıdaki e-posta adresine, <span class="strong">kayıtlı e-postanızı</span> ve “Hesap Silme Talebi” konusunu yazarak gönderin.</li>
+            <li>Talebiniz en geç <span class="strong">30 gün</span> içinde işlenir.</li>
+          </ul>
+
+          <div class="pill">
+            <span class="muted">Destek e-postası</span>
+            <div style="display:flex; gap:10px; align-items:center;">
+              <code id="support-email-tr">support@ascendcoin.app</code>
+              <button type="button" onclick="copyText('support-email-tr')">Kopyala</button>
+            </div>
+          </div>
+        </div>
+
+        <div>
+          <h3>Silinen veriler</h3>
+          <ul>
+            <li>Hesap bilgileri (ör. e-posta, kullanıcı profili)</li>
+            <li>Uygulama içi ilerleme/istatistik verileri</li>
+            <li>Sunucuda hesabınızla ilişkilendirilmiş kayıtlar</li>
+          </ul>
+
+          <h3 style="margin-top:16px;">Saklanabilecek veriler</h3>
+          <ul>
+            <li>Yasal yükümlülükler</li>
+            <li>Dolandırıcılık/istismar önleme</li>
+            <li>Güvenlik kayıtları (sınırlı süre)</li>
+          </ul>
+
+          <div class="note">
+            Reklam ortakları (örn. Google AdMob) cihaz tanımlayıcılarını/teşhis verilerini kendi politikalarına göre işleyebilir.
+            Bu veriler, kullanıcı hesabınızdan bağımsız olabilir.
+          </div>
+        </div>
+      </div>
+
+      <div class="footer">
+        <div>© <span id="year-tr"></span> Ascend Mining</div>
+        <div><a href="#" onclick="setLang('en'); return false;">View in English</a></div>
+      </div>
+    </section>
+
+    <!-- EN -->
+    <section id="content-en" class="card hidden">
+      <div class="hero">
+        <p class="kicker">DATA SAFETY</p>
+        <h2>Account Deletion Request</h2>
+        <p>
+          To delete your Ascend Mining account and associated data, follow the instructions below.
+          This page is provided for Google Play’s “Account deletion URL” requirement.
+        </p>
+      </div>
+
+      <div class="grid">
+        <div>
+          <h3>Delete from within the app</h3>
+          <ul>
+            <li>Go to <span class="strong">Settings</span> &rarr; <span class="strong">Account</span> &rarr; <span class="strong">Delete Account</span>.</li>
+            <li>Once completed, you will no longer be able to sign in with the deleted account.</li>
+          </ul>
+
+          <div class="note">
+            <span class="strong">Note:</span> If the in-app “Delete Account” option is not available yet,
+            you can request deletion via email using the method below.
+          </div>
+
+          <h3 style="margin-top:16px;">Delete outside the app (via email)</h3>
+          <ul>
+            <li>Email us from your <span class="strong">registered email address</span> with the subject “Account Deletion Request”.</li>
+            <li>Requests are processed within <span class="strong">30 days</span>.</li>
+          </ul>
+
+          <div class="pill">
+            <span class="muted">Support email</span>
+            <div style="display:flex; gap:10px; align-items:center;">
+              <code id="support-email-en">support@ascendcoin.app</code>
+              <button type="button" onclick="copyText('support-email-en')">Copy</button>
+            </div>
+          </div>
+        </div>
+
+        <div>
+          <h3>Data deleted</h3>
+          <ul>
+            <li>Account details (e.g., email, profile)</li>
+            <li>In-app progress / stats linked to the account</li>
+            <li>Server-side records associated with your account</li>
+          </ul>
+
+          <h3 style="margin-top:16px;">Data that may be retained</h3>
+          <ul>
+            <li>Legal obligations</li>
+            <li>Fraud/abuse prevention</li>
+            <li>Security logs (limited period)</li>
+          </ul>
+
+          <div class="note">
+            Advertising partners (e.g., Google AdMob) may process device identifiers/diagnostics under their own policies.
+            This data can be independent from your user account.
+          </div>
+        </div>
+      </div>
+
+      <div class="footer">
+        <div>© <span id="year-en"></span> Ascend Mining</div>
+        <div><a href="#" onclick="setLang('tr'); return false;">Türkçe görüntüle</a></div>
+      </div>
+    </section>
+  </div>
+
+  <script>
+    function setLang(lang){
+      const tr = document.getElementById('content-tr');
+      const en = document.getElementById('content-en');
+      const btr = document.getElementById('btn-tr');
+      const ben = document.getElementById('btn-en');
+
+      if(lang === 'en'){
+        tr.classList.add('hidden');
+        en.classList.remove('hidden');
+        btr.classList.remove('active');
+        ben.classList.add('active');
+        document.documentElement.lang = 'en';
+      } else {
+        en.classList.add('hidden');
+        tr.classList.remove('hidden');
+        ben.classList.remove('active');
+        btr.classList.add('active');
+        document.documentElement.lang = 'tr';
+      }
+
+      // Keep URL clean with a hash
+      try { history.replaceState(null, "", "#" + lang); } catch(e) {}
+    }
+
+    function copyText(elId){
+      const el = document.getElementById(elId);
+      const text = (el && el.textContent) ? el.textContent.trim() : "";
+      if(!text) return;
+      navigator.clipboard.writeText(text).then(() => {
+        // mini feedback
+        alert("Kopyalandı: " + text);
+      }).catch(() => {
+        // fallback
+        const ta = document.createElement('textarea');
+        ta.value = text;
+        document.body.appendChild(ta);
+        ta.select();
+        document.execCommand('copy');
+        document.body.removeChild(ta);
+        alert("Kopyalandı: " + text);
+      });
+    }
+
+    // year
+    const y = new Date().getFullYear();
+    document.getElementById('year-tr').textContent = y;
+    document.getElementById('year-en').textContent = y;
+
+    // auto language from hash
+    const hash = (location.hash || "").replace("#","").toLowerCase();
+    if(hash === "en") setLang("en");
+  </script>
+</body>
+</html>
