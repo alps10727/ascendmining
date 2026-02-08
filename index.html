@@ -1,0 +1,812 @@
+<!doctype html>
+<html lang="tr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="theme-color" content="#0b0b0f" />
+  <meta name="description" content="Ascend Mining (ASC) — 24 saatlik madencilik döngüsü, görevler, yükseltmeler ve topluluk odaklı ekonomi." />
+  <title>Ascend Mining • Premium Mining Experience</title>
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Ascend Mining (ASC)" />
+  <meta property="og:description" content="Mine. Ascend. Earn. — Premium 24h mining experience." />
+  <meta property="og:type" content="website" />
+  <!-- TODO: Yayına alınca gerçek domain ile değiştir -->
+  <meta property="og:url" content="https://ascendcoin.app" />
+  <!-- TODO: İstersen logo görseli ekleyip link ver -->
+  <meta property="og:image" content="" />
+
+  <style>
+    :root{
+      --bg:#07070a;
+      --bg2:#0b0b10;
+      --card:#101018cc;
+      --stroke:#ffffff14;
+      --text:#f4f4f6;
+      --muted:#b8b8c2;
+      --gold:#d6b15a;
+      --gold2:#f0d07a;
+      --shadow: 0 20px 60px rgba(0,0,0,.55);
+      --radius: 18px;
+      --radius2: 26px;
+      --max: 1120px;
+      --mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+      --sans: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
+    }
+
+    *{box-sizing:border-box}
+    html,body{margin:0;padding:0;background: radial-gradient(1200px 700px at 75% -10%, rgba(214,177,90,.12), transparent 60%),
+                                 radial-gradient(900px 600px at 10% 0%, rgba(240,208,122,.07), transparent 60%),
+                                 linear-gradient(180deg, var(--bg), var(--bg2));
+              color:var(--text); font-family:var(--sans); scroll-behavior:smooth;}
+    a{color:inherit; text-decoration:none}
+    img{max-width:100%; height:auto}
+    .container{max-width:var(--max); margin:0 auto; padding:0 20px}
+    .pill{display:inline-flex; align-items:center; gap:10px; padding:10px 14px; border:1px solid var(--stroke);
+          background:linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.02));
+          border-radius:999px; color:var(--muted); font-size:13px}
+    .dot{width:8px; height:8px; border-radius:50%; background:var(--gold); box-shadow:0 0 18px rgba(214,177,90,.55)}
+    .btn{display:inline-flex; align-items:center; justify-content:center; gap:10px; padding:12px 16px; border-radius:14px;
+         border:1px solid var(--stroke); background:rgba(255,255,255,.04); color:var(--text); font-weight:650;
+         transition:.2s transform, .2s background, .2s border}
+    .btn:hover{transform:translateY(-1px); background:rgba(255,255,255,.06); border-color:rgba(255,255,255,.18)}
+    .btn.primary{background:linear-gradient(135deg, rgba(214,177,90,.22), rgba(240,208,122,.10));
+                 border-color:rgba(214,177,90,.35)}
+    .btn.primary:hover{background:linear-gradient(135deg, rgba(214,177,90,.30), rgba(240,208,122,.14))}
+    .btn.ghost{background:transparent}
+    .kbd{font-family:var(--mono); font-size:12px; padding:3px 8px; border:1px solid var(--stroke); border-radius:8px; color:var(--muted)}
+    .glow{position:absolute; inset:-120px -120px auto auto; width:520px; height:520px; border-radius:50%;
+          background:radial-gradient(circle at 30% 30%, rgba(240,208,122,.20), rgba(214,177,90,.10), transparent 60%);
+          filter: blur(2px); pointer-events:none; opacity:.9}
+    .grid{position:absolute; inset:0; background:
+          linear-gradient(to right, rgba(255,255,255,.05) 1px, transparent 1px),
+          linear-gradient(to bottom, rgba(255,255,255,.04) 1px, transparent 1px);
+          background-size: 44px 44px; mask-image: radial-gradient(600px 350px at 30% 10%, black, transparent 70%);
+          opacity:.25; pointer-events:none}
+
+    /* Header */
+    header{position:sticky; top:0; z-index:50; backdrop-filter: blur(12px);
+           background:linear-gradient(180deg, rgba(7,7,10,.75), rgba(7,7,10,.35));
+           border-bottom:1px solid rgba(255,255,255,.08)}
+    .nav{display:flex; align-items:center; justify-content:space-between; padding:14px 0}
+    .brand{display:flex; align-items:center; gap:12px}
+    .logo{
+      width:38px; height:38px; border-radius:12px;
+      background: radial-gradient(circle at 30% 30%, rgba(240,208,122,.95), rgba(214,177,90,.45) 55%, rgba(0,0,0,.2) 100%);
+      border:1px solid rgba(214,177,90,.35);
+      box-shadow: 0 18px 50px rgba(214,177,90,.18);
+      position:relative;
+    }
+    .logo:after{
+      content:""; position:absolute; inset:8px;
+      border-radius:10px; border:1px dashed rgba(255,255,255,.20);
+      opacity:.55
+    }
+    .brand b{letter-spacing:.2px}
+    nav ul{display:flex; list-style:none; padding:0; margin:0; gap:16px; align-items:center}
+    nav a{color:var(--muted); font-size:14px; padding:8px 10px; border-radius:10px; transition:.2s background, .2s color}
+    nav a:hover{color:var(--text); background:rgba(255,255,255,.05)}
+    .nav-actions{display:flex; gap:10px; align-items:center}
+    .burger{display:none}
+    .mobile{display:none}
+
+    /* Hero */
+    .hero{position:relative; padding:64px 0 34px}
+    .hero-wrap{display:grid; grid-template-columns: 1.15fr .85fr; gap:24px; align-items:center}
+    h1{font-size:54px; line-height:1.03; margin:16px 0 12px; letter-spacing:-1.2px}
+    .gold{background: linear-gradient(120deg, var(--gold2), var(--gold));
+          -webkit-background-clip:text; background-clip:text; color:transparent}
+    .lead{font-size:17px; color:var(--muted); max-width:52ch; line-height:1.6}
+    .cta{display:flex; gap:12px; align-items:center; margin:18px 0 8px; flex-wrap:wrap}
+    .badges{display:flex; gap:10px; flex-wrap:wrap; margin-top:14px}
+    .badge{display:flex; gap:10px; align-items:flex-start; padding:14px 14px; border:1px solid var(--stroke);
+           border-radius:var(--radius); background:linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.02));
+           box-shadow: var(--shadow)}
+    .badge .i{width:34px; height:34px; border-radius:12px; display:grid; place-items:center;
+              border:1px solid rgba(214,177,90,.28);
+              background:radial-gradient(circle at 30% 30%, rgba(240,208,122,.20), rgba(214,177,90,.08), rgba(255,255,255,.02));}
+    .badge h3{margin:2px 0 3px; font-size:13px; letter-spacing:.2px}
+    .badge p{margin:0; font-size:12px; color:var(--muted); line-height:1.45}
+
+    .hero-card{border-radius:var(--radius2); border:1px solid rgba(214,177,90,.25);
+               background: linear-gradient(180deg, rgba(16,16,24,.75), rgba(10,10,14,.65));
+               box-shadow: 0 30px 90px rgba(0,0,0,.65);
+               padding:18px; position:relative; overflow:hidden}
+    .hero-card:before{
+      content:""; position:absolute; inset:-100px -120px auto auto; width:420px; height:420px; border-radius:50%;
+      background: radial-gradient(circle at 30% 30%, rgba(240,208,122,.20), rgba(214,177,90,.10), transparent 60%);
+      filter: blur(1px);
+      opacity:.9;
+    }
+    .stat-grid{display:grid; grid-template-columns: 1fr 1fr; gap:12px; margin-top:10px}
+    .stat{padding:14px; border-radius:16px; border:1px solid rgba(255,255,255,.10); background:rgba(255,255,255,.03)}
+    .stat .k{font-family:var(--mono); color:var(--muted); font-size:12px}
+    .stat .v{font-size:20px; font-weight:760; margin-top:6px}
+    .chiprow{display:flex; gap:10px; flex-wrap:wrap; margin-top:12px}
+    .chip{font-size:12px; color:var(--muted); border:1px solid rgba(255,255,255,.12);
+          padding:8px 10px; border-radius:999px; background:rgba(255,255,255,.03)}
+    .divider{height:1px; background:rgba(255,255,255,.10); margin:14px 0}
+
+    /* Sections */
+    section{padding:52px 0}
+    .sec-head{display:flex; align-items:flex-end; justify-content:space-between; gap:18px; margin-bottom:18px}
+    .sec-head h2{margin:0; font-size:28px; letter-spacing:-.3px}
+    .sec-head p{margin:0; color:var(--muted); max-width:65ch; line-height:1.6}
+
+    .cards{display:grid; grid-template-columns: repeat(12, 1fr); gap:14px}
+    .card{grid-column: span 4; padding:18px; border-radius:var(--radius2);
+          border:1px solid rgba(255,255,255,.10);
+          background: linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.02));
+          box-shadow: var(--shadow); position:relative; overflow:hidden}
+    .card:before{
+      content:""; position:absolute; inset:auto -80px -80px auto; width:220px; height:220px; border-radius:50%;
+      background:radial-gradient(circle at 30% 30%, rgba(214,177,90,.18), transparent 60%);
+      opacity:.7; filter: blur(1px)
+    }
+    .card h3{margin:10px 0 6px; font-size:16px}
+    .card p{margin:0; color:var(--muted); line-height:1.6; font-size:14px}
+    .icon{
+      width:42px; height:42px; border-radius:16px; display:grid; place-items:center;
+      border:1px solid rgba(214,177,90,.30);
+      background: radial-gradient(circle at 30% 30%, rgba(240,208,122,.18), rgba(214,177,90,.06), rgba(255,255,255,.02));
+      box-shadow: 0 12px 40px rgba(214,177,90,.08);
+    }
+
+    /* Timeline */
+    .timeline{display:grid; grid-template-columns: 1fr; gap:12px}
+    .mile{display:grid; grid-template-columns: 160px 1fr; gap:14px; padding:16px; border-radius:var(--radius2);
+          border:1px solid rgba(255,255,255,.10);
+          background: linear-gradient(180deg, rgba(255,255,255,.05), rgba(255,255,255,.02));
+          box-shadow: var(--shadow); position:relative; overflow:hidden}
+    .mile:before{
+      content:""; position:absolute; inset:-60px auto auto -60px; width:220px; height:220px; border-radius:50%;
+      background:radial-gradient(circle at 30% 30%, rgba(214,177,90,.16), transparent 62%);
+      opacity:.8
+    }
+    .mile .when{font-family:var(--mono); color:var(--gold2); font-weight:750; letter-spacing:.5px}
+    .mile .desc{color:var(--muted); line-height:1.6}
+    .mile ul{margin:10px 0 0; padding-left:18px; color:var(--muted)}
+    .mile li{margin:6px 0}
+
+    /* Whitepaper */
+    .paper{display:grid; grid-template-columns: 1.1fr .9fr; gap:14px}
+    .paper .box{padding:18px; border-radius:var(--radius2); border:1px solid rgba(255,255,255,.10);
+                background: linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.02));
+                box-shadow: var(--shadow)}
+    .paper h3{margin:0 0 10px}
+    .paper p, .paper li{color:var(--muted); line-height:1.65}
+    .paper ul{margin:8px 0 0; padding-left:18px}
+    .note{margin-top:12px; font-size:12px; color:var(--muted)}
+    .download{display:flex; gap:10px; flex-wrap:wrap; margin-top:12px}
+
+    /* Tokenomics */
+    .tok{display:grid; grid-template-columns: repeat(12,1fr); gap:14px}
+    .tok .tcard{grid-column: span 6; padding:18px; border-radius:var(--radius2);
+                border:1px solid rgba(255,255,255,.10);
+                background: linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.02));
+                box-shadow: var(--shadow)}
+    .kv{display:grid; grid-template-columns: 1fr 1fr; gap:10px; margin-top:10px}
+    .kv .item{padding:12px; border-radius:16px; border:1px solid rgba(255,255,255,.10); background:rgba(255,255,255,.03)}
+    .kv .item .k{color:var(--muted); font-size:12px; font-family:var(--mono)}
+    .kv .item .v{margin-top:6px; font-weight:760}
+    .small{font-size:12px; color:var(--muted); line-height:1.6}
+
+    /* FAQ */
+    .faq{display:grid; grid-template-columns: 1fr 1fr; gap:14px}
+    details{border-radius:18px; border:1px solid rgba(255,255,255,.10); background:rgba(255,255,255,.03); padding:14px 14px}
+    summary{cursor:pointer; list-style:none; font-weight:700}
+    summary::-webkit-details-marker{display:none}
+    details p{margin:10px 0 0; color:var(--muted); line-height:1.6}
+
+    /* Footer */
+    footer{padding:30px 0 44px; border-top:1px solid rgba(255,255,255,.08); background:rgba(0,0,0,.12)}
+    .foot{display:flex; justify-content:space-between; gap:14px; flex-wrap:wrap; align-items:center}
+    .foot .links{display:flex; gap:12px; flex-wrap:wrap; color:var(--muted); font-size:14px}
+    .subtle{color:var(--muted); font-size:13px}
+
+    /* Reveal animation */
+    .reveal{opacity:0; transform: translateY(10px); transition: .6s opacity, .6s transform}
+    .reveal.in{opacity:1; transform: translateY(0)}
+
+    /* Responsive */
+    @media (max-width: 980px){
+      .hero-wrap{grid-template-columns: 1fr; }
+      h1{font-size:44px}
+      .paper{grid-template-columns: 1fr}
+      .card{grid-column: span 6}
+      .tok .tcard{grid-column: span 12}
+    }
+    @media (max-width: 720px){
+      nav ul{display:none}
+      .burger{display:inline-flex}
+      .mobile{display:none; position:absolute; left:0; right:0; top:62px;
+              background:rgba(7,7,10,.98); border-bottom:1px solid rgba(255,255,255,.10)}
+      .mobile a{display:block; padding:14px 20px; color:var(--muted)}
+      .mobile a:hover{color:var(--text); background:rgba(255,255,255,.04)}
+      .stat-grid{grid-template-columns:1fr}
+      .card{grid-column: span 12}
+      .mile{grid-template-columns: 1fr}
+      .faq{grid-template-columns:1fr}
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <div class="container">
+      <div class="nav">
+        <a class="brand" href="#top" aria-label="Ascend Mining">
+          <span class="logo" aria-hidden="true"></span>
+          <div>
+            <b>Ascend Mining</b><br/>
+            <span class="subtle">ASC • Premium Mining Experience</span>
+          </div>
+        </a>
+
+        <nav aria-label="Ana menü">
+          <ul>
+            <li><a href="#features">Özellikler</a></li>
+            <li><a href="#whitepaper">Whitepaper</a></li>
+            <li><a href="#roadmap">Yol Haritası</a></li>
+            <li><a href="#tokenomics">Tokenomics</a></li>
+            <li><a href="#faq">SSS</a></li>
+          </ul>
+        </nav>
+
+        <div class="nav-actions">
+          <a class="btn ghost" href="#whitepaper">Whitepaper</a>
+          <a class="btn primary" href="#cta">Uygulamayı İndir</a>
+          <button class="btn burger" id="burger" aria-label="Menüyü Aç/Kapat">☰</button>
+        </div>
+      </div>
+      <div class="mobile" id="mobileNav">
+        <a href="#features">Özellikler</a>
+        <a href="#whitepaper">Whitepaper</a>
+        <a href="#roadmap">Yol Haritası</a>
+        <a href="#tokenomics">Tokenomics</a>
+        <a href="#faq">SSS</a>
+        <a href="#cta">İndir</a>
+      </div>
+    </div>
+  </header>
+
+  <main id="top">
+    <div class="hero">
+      <div class="glow"></div>
+      <div class="grid"></div>
+
+      <div class="container hero-wrap">
+        <div>
+          <span class="pill"><span class="dot"></span> 24 saatlik döngü • Görevler • Yükseltmeler • Topluluk</span>
+          <h1 class="reveal">
+            <span class="gold">Mine. Ascend. Earn.</span><br/>
+            Premium tasarım, akıllı ekonomi ve sürdürülebilir büyüme.
+          </h1>
+          <p class="lead reveal">
+            Ascend Mining, kullanıcı deneyimini önceleyen, 24 saatlik madencilik döngüsüyle çalışan ve
+            topluluk odaklı gelişen bir “mining + görev” platformudur.
+          </p>
+
+          <div class="cta reveal" id="cta">
+            <!-- TODO: Play Store linkini yayınlayınca buraya koy -->
+            <a class="btn primary" href="#" onclick="toast('Play Store linkini buraya ekleyeceğiz 👑'); return false;">Google Play (Yakında)</a>
+            <a class="btn" href="#whitepaper">Whitepaper’ı Oku</a>
+            <span class="kbd">Tek dosya • GitHub Pages uyumlu</span>
+          </div>
+
+          <div class="badges">
+            <div class="badge reveal">
+              <div class="i">⚡</div>
+              <div>
+                <h3>Hızlı, akıcı arayüz</h3>
+                <p>Premium hissi veren siyah-altın tema, temiz ve modern layout.</p>
+              </div>
+            </div>
+            <div class="badge reveal">
+              <div class="i">🛡️</div>
+              <div>
+                <h3>Anti-abuse mantığı</h3>
+                <p>Sunucu zaman kontrolü + denge mekanizmalarıyla sürdürülebilir.</p>
+              </div>
+            </div>
+            <div class="badge reveal">
+              <div class="i">🌍</div>
+              <div>
+                <h3>Global topluluk</h3>
+                <p>Referans sistemi, görevler ve etkinliklerle organik büyüme.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <aside class="hero-card reveal" aria-label="Özet kart">
+          <div class="pill"><span class="dot"></span> ASC Ekosistem Özeti</div>
+          <div class="divider"></div>
+          <div class="stat-grid">
+            <div class="stat">
+              <div class="k">Madencilik Döngüsü</div>
+              <div class="v">24 Saat</div>
+            </div>
+            <div class="stat">
+              <div class="k">Odak</div>
+              <div class="v">Premium UX</div>
+            </div>
+            <div class="stat">
+              <div class="k">Ekonomi</div>
+              <div class="v">Dengeli</div>
+            </div>
+            <div class="stat">
+              <div class="k">Topluluk</div>
+              <div class="v">Global</div>
+            </div>
+          </div>
+          <div class="chiprow">
+            <span class="chip">Görev & Ödül sistemi</span>
+            <span class="chip">Yükseltmeler</span>
+            <span class="chip">Etkinlikler</span>
+            <span class="chip">Airdrop / TGE planı</span>
+          </div>
+          <p class="note">
+            Not: Bu sayfadaki “Tokenomics / Tarihler” örnek şablondur. İstersen senin gerçek planına göre
+            10 dakikada güncellerim.
+          </p>
+        </aside>
+      </div>
+    </div>
+
+    <!-- Features -->
+    <section id="features">
+      <div class="container">
+        <div class="sec-head">
+          <div>
+            <h2 class="reveal">Özellikler</h2>
+            <p class="reveal">Kullanıcıyı içeride tutan, net kurallı ve premium hissi veren mekanikler.</p>
+          </div>
+          <div class="reveal">
+            <a class="btn" href="#roadmap">Yol haritasına geç</a>
+          </div>
+        </div>
+
+        <div class="cards">
+          <div class="card reveal">
+            <div class="icon">⏱️</div>
+            <h3>24 Saat Madencilik</h3>
+            <p>Tek tıkla başlat, süre sonunda ödül al. Zaman yönetimi ve hatırlatmalarla güçlü etkileşim.</p>
+          </div>
+
+          <div class="card reveal">
+            <div class="icon">🎯</div>
+            <h3>Görev & Seri Ödülleri</h3>
+            <p>Günlük görevler, seri giriş bonusu ve etkinliklerle retention artar.</p>
+          </div>
+
+          <div class="card reveal">
+            <div class="icon">🚀</div>
+            <h3>Yükseltmeler</h3>
+            <p>Madencilik hızını dengeyi bozmadan geliştiren upgrade sistemi (kademeli, şeffaf).</p>
+          </div>
+
+          <div class="card reveal">
+            <div class="icon">🤝</div>
+            <h3>Referans Sistemi</h3>
+            <p>Organik büyümeyi destekleyen adil referral. Spam/abuse önlemleriyle.</p>
+          </div>
+
+          <div class="card reveal">
+            <div class="icon">🔒</div>
+            <h3>Güvenlik & Anti-Abuse</h3>
+            <p>Sunucu tabanlı süre kontrolü, hız limitleri ve davranış analizleri (opsiyonel).</p>
+          </div>
+
+          <div class="card reveal">
+            <div class="icon">✨</div>
+            <h3>Premium Tasarım</h3>
+            <p>Siyah-altın tema, minimal ama güçlü tipografi; “store’da kaliteli durur”.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Whitepaper -->
+    <section id="whitepaper">
+      <div class="container">
+        <div class="sec-head">
+          <div>
+            <h2 class="reveal">Whitepaper</h2>
+            <p class="reveal">Tek sayfalık hızlı özet + istersen PDF sürümü (butonlar hazır).</p>
+          </div>
+          <div class="reveal">
+            <a class="btn primary" href="#" onclick="toast('PDF dosyanı repo içine koyunca linki bağlarız 👑'); return false;">PDF İndir (Yakında)</a>
+          </div>
+        </div>
+
+        <div class="paper">
+          <div class="box reveal">
+            <h3>Vizyon</h3>
+            <p>
+              Ascend Mining, herkesin erişebileceği; şeffaf kurallara sahip, uzun vadeli büyümeyi hedefleyen
+              topluluk odaklı bir “madencilik deneyimi” sunar.
+            </p>
+
+            <h3 style="margin-top:14px">Temel İlkeler</h3>
+            <ul>
+              <li><b>Basitlik:</b> Tek tıkla başlat, net kurallar.</li>
+              <li><b>Adalet:</b> Dengeli ödül/upgrade ekonomisi.</li>
+              <li><b>Sürdürülebilirlik:</b> Abuse önlemleri + aşamalı genişleme.</li>
+              <li><b>Premium UX:</b> Kullanıcı güveni ve kalite algısı.</li>
+            </ul>
+
+            <div class="download">
+              <!-- TODO: gerçek linkler -->
+              <a class="btn" href="#" onclick="toast('Play linkini ekleyeceğiz.'); return false;">Google Play</a>
+              <a class="btn" href="#" onclick="toast('Telegram / X linklerini ekleyelim.'); return false;">Topluluğa Katıl</a>
+              <a class="btn ghost" href="#tokenomics">Tokenomics</a>
+            </div>
+
+            <p class="note">
+              İstersen whitepaper metnini senin gerçek planına göre burada “tam metin” olarak da yayınlarız.
+              (PDF opsiyonel.)
+            </p>
+          </div>
+
+          <div class="box reveal">
+            <h3>Ekonomi Özeti</h3>
+            <p>
+              ASC ekosistemi; kullanıcı motivasyonunu artıran, ancak enflasyonu kontrol eden bir yapıda tasarlanır.
+              Dağıtım planı, listeleme sonrası satış baskısını azaltacak şekilde kademelendirilir.
+            </p>
+
+            <div class="divider"></div>
+
+            <p class="small"><b>Örnek mekanikler (şablon):</b></p>
+            <ul>
+              <li>Madencilik ödülü: 24 saat sonunda “claim”.</li>
+              <li>Görev bonusları: günlük/haftalık.</li>
+              <li>Referral: adil oranlar + anti-spam.</li>
+              <li>Etkinlikler: dönemsel çarpan / görev maratonu.</li>
+            </ul>
+
+            <div class="divider"></div>
+
+            <p class="small">
+              Not: Burayı senin “reklamlı / reklamsız mod” gibi iş modeline göre de uyarlayabiliriz.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Roadmap -->
+    <section id="roadmap">
+      <div class="container">
+        <div class="sec-head">
+          <div>
+            <h2 class="reveal">Yol Haritası</h2>
+            <p class="reveal">Aşamaları net gösteren timeline. Tarihler örnektir; senin planına göre güncelleriz.</p>
+          </div>
+          <div class="reveal">
+            <a class="btn" href="#faq">SSS</a>
+          </div>
+        </div>
+
+        <div class="timeline">
+          <div class="mile reveal">
+            <div>
+              <div class="when">FAZ 1 • MVP</div>
+              <div class="subtle">Q1 2026</div>
+            </div>
+            <div class="desc">
+              Temel madencilik döngüsü + kullanıcı onboarding + temel görevler.
+              <ul>
+                <li>24h start/claim</li>
+                <li>Profil & istatistik ekranı</li>
+                <li>Topluluk kanalları</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="mile reveal">
+            <div>
+              <div class="when">FAZ 2 • Retention</div>
+              <div class="subtle">Q2 2026</div>
+            </div>
+            <div class="desc">
+              Günlük seri ödülleri, gelişmiş görevler, yükseltmeler ve etkinlikler.
+              <ul>
+                <li>Streak sistemi</li>
+                <li>Upgrade ağaçları</li>
+                <li>Etkinlik modları</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="mile reveal">
+            <div>
+              <div class="when">FAZ 3 • Ekonomi</div>
+              <div class="subtle">Q3 2026</div>
+            </div>
+            <div class="desc">
+              Tokenomics son hali, dağıtım planı, KYC/uyumluluk ilkeleri.
+              <ul>
+                <li>Şeffaf dağıtım</li>
+                <li>Anti-abuse geliştirmeleri</li>
+                <li>Partnerlik görüşmeleri</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="mile reveal">
+            <div>
+              <div class="when">FAZ 4 • TGE / Listeleme</div>
+              <div class="subtle">Q4 2026 (hedef)</div>
+            </div>
+            <div class="desc">
+              Kademeli dağıtım, topluluk ödülleri, büyüme kampanyaları.
+              <ul>
+                <li>Kademeli dağıtım</li>
+                <li>Topluluk etkinlikleri</li>
+                <li>Global ölçekleme</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Tokenomics -->
+    <section id="tokenomics">
+      <div class="container">
+        <div class="sec-head">
+          <div>
+            <h2 class="reveal">Tokenomics (Şablon)</h2>
+            <p class="reveal">Rakamlar örnektir. Senin gerçek arz/dağıtım planını yazınca burayı “resmi” hale getiririz.</p>
+          </div>
+          <div class="reveal">
+            <a class="btn primary" href="#whitepaper">Whitepaper’a dön</a>
+          </div>
+        </div>
+
+        <div class="tok">
+          <div class="tcard reveal">
+            <h3>ASC Token Temelleri</h3>
+            <div class="kv">
+              <div class="item">
+                <div class="k">Sembol</div>
+                <div class="v">ASC</div>
+              </div>
+              <div class="item">
+                <div class="k">Kullanım</div>
+                <div class="v">Ödül • Upgrade • Etkinlik</div>
+              </div>
+              <div class="item">
+                <div class="k">Döngü</div>
+                <div class="v">24h Madencilik</div>
+              </div>
+              <div class="item">
+                <div class="k">Hedef</div>
+                <div class="v">Sürdürülebilir büyüme</div>
+              </div>
+            </div>
+            <p class="small" style="margin-top:12px">
+              “Listeleme sonrası satış baskısı” riskini azaltmak için kademeli dağıtım önerilir.
+            </p>
+          </div>
+
+          <div class="tcard reveal">
+            <h3>Dağıtım Örneği</h3>
+            <div class="kv">
+              <div class="item">
+                <div class="k">Topluluk / Madencilik</div>
+                <div class="v">%50</div>
+              </div>
+              <div class="item">
+                <div class="k">Geliştirme</div>
+                <div class="v">%15</div>
+              </div>
+              <div class="item">
+                <div class="k">Pazarlama / Partner</div>
+                <div class="v">%15</div>
+              </div>
+              <div class="item">
+                <div class="k">Likidite / Borsa</div>
+                <div class="v">%20</div>
+              </div>
+            </div>
+            <p class="small" style="margin-top:12px">
+              Bu sadece şablon. Senin planına göre (ör. ekip kilitleri/vesting) daha profesyonel yaparız.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section id="faq">
+      <div class="container">
+        <div class="sec-head">
+          <div>
+            <h2 class="reveal">SSS</h2>
+            <p class="reveal">Kısa, net, güven veren cevaplar. İstersen daha “legal/policy” uyumlu dil ekleriz.</p>
+          </div>
+          <div class="reveal">
+            <a class="btn" href="#top">Yukarı</a>
+          </div>
+        </div>
+
+        <div class="faq">
+          <details class="reveal">
+            <summary>Ascend Mining nedir?</summary>
+            <p>24 saatlik madencilik döngüsüyle çalışan, görevler ve yükseltmelerle kullanıcı etkileşimini artıran bir ekosistemdir.</p>
+          </details>
+
+          <details class="reveal">
+            <summary>ASC nasıl kazanılır?</summary>
+            <p>Madenciliği başlatıp süre sonunda claim edersin; ayrıca görevler ve etkinliklerden bonus kazanırsın.</p>
+          </details>
+
+          <details class="reveal">
+            <summary>Whitepaper ve yol haritası resmi mi?</summary>
+            <p>Bu sayfa “şablon + vitrin” olarak hazırlandı. Senin gerçek planına göre metni resmileştirip sabitleriz.</p>
+          </details>
+
+          <details class="reveal">
+            <summary>Ne zaman listeleme olacak?</summary>
+            <p>Hedef dönem “Q4 2026” örneği var; gerçek tarih/plan, geliştirme ve partnerlik sürecine göre güncellenir.</p>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <!-- Final CTA -->
+    <section>
+      <div class="container">
+        <div class="hero-card reveal" style="display:flex; align-items:center; justify-content:space-between; gap:14px; flex-wrap:wrap">
+          <div>
+            <div class="pill"><span class="dot"></span> ascendcoin.app • GitHub Pages</div>
+            <h2 style="margin:10px 0 6px">Yayına alalım mı?</h2>
+            <p class="subtle" style="max-width:70ch; margin:0">
+              Repo oluştur → index.html ekle → GitHub Pages aç → domain bağla → HTTPS’i zorunlu yap.
+              Aşağıda adım adım verdim.
+            </p>
+          </div>
+          <div style="display:flex; gap:10px; flex-wrap:wrap">
+            <a class="btn primary" href="#publish">Yayın adımları</a>
+            <a class="btn" href="#whitepaper">Whitepaper düzenle</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Publish Steps -->
+    <section id="publish">
+      <div class="container">
+        <div class="sec-head">
+          <div>
+            <h2 class="reveal">GitHub’dan Yayına Alma + Domain Bağlama</h2>
+            <p class="reveal">Aşağıdaki adımlar ascendcoin.app alan adını GitHub Pages’e bağlar. (Tek dosya site için ideal.)</p>
+          </div>
+        </div>
+
+        <div class="paper">
+          <div class="box reveal">
+            <h3>Adım 1 — GitHub Repo</h3>
+            <ol style="color:var(--muted); line-height:1.7; margin:0; padding-left:18px">
+              <li>GitHub’da yeni repo aç: örn. <b>ascendcoin</b> (Public önerilir).</li>
+              <li>Bu dosyayı <b>index.html</b> adıyla repo köküne koy.</li>
+              <li>Commit & push.</li>
+            </ol>
+
+            <div class="divider"></div>
+
+            <h3>Adım 2 — GitHub Pages Aç</h3>
+            <ol style="color:var(--muted); line-height:1.7; margin:0; padding-left:18px">
+              <li>Repo → <b>Settings</b> → <b>Pages</b></li>
+              <li><b>Build and deployment</b> → Source: <b>Deploy from a branch</b></li>
+              <li>Branch: <b>main</b> / <b>(root)</b> seç</li>
+              <li>Kaydet → GitHub sana bir URL verir (ör. username.github.io/...)</li>
+            </ol>
+          </div>
+
+          <div class="box reveal">
+            <h3>Adım 3 — ascendcoin.app domain bağla</h3>
+            <p class="small">
+              GitHub Pages ekranında <b>Custom domain</b> alanına <b>ascendcoin.app</b> yaz.
+              Kaydet.
+            </p>
+
+            <div class="divider"></div>
+
+            <h3>Adım 4 — DNS kayıtları (Domain panelinde)</h3>
+            <p class="small">
+              Domain sağlayıcında (nereden aldıysan) aşağıdaki kayıtları ekle:
+            </p>
+
+            <div style="border:1px solid rgba(255,255,255,.10); border-radius:16px; padding:12px; background:rgba(255,255,255,.03)">
+              <div class="subtle" style="font-family:var(--mono); font-size:12px; line-height:1.8">
+                <b>A</b>  @  →  185.199.108.153<br/>
+                <b>A</b>  @  →  185.199.109.153<br/>
+                <b>A</b>  @  →  185.199.110.153<br/>
+                <b>A</b>  @  →  185.199.111.153<br/>
+                <br/>
+                (Opsiyonel) <b>CNAME</b>  www  →  username.github.io
+              </div>
+            </div>
+
+            <p class="note">
+              Sonra GitHub Pages’te <b>Enforce HTTPS</b> seçeneğini aç (sertifika gelince aktif olur).
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container foot">
+      <div class="brand">
+        <span class="logo" aria-hidden="true"></span>
+        <div>
+          <b>Ascend Mining</b><br/>
+          <span class="subtle">© <span id="year"></span> Ascend. Tüm hakları saklıdır.</span>
+        </div>
+      </div>
+      <div class="links">
+        <!-- TODO: Linkleri yayınlayınca doldur -->
+        <a href="#features">Özellikler</a>
+        <a href="#whitepaper">Whitepaper</a>
+        <a href="#roadmap">Yol Haritası</a>
+        <a href="#tokenomics">Tokenomics</a>
+        <a href="#faq">SSS</a>
+      </div>
+    </div>
+  </footer>
+
+  <div id="toast" style="position:fixed; left:50%; bottom:20px; transform:translateX(-50%);
+       background:rgba(20,20,28,.92); border:1px solid rgba(255,255,255,.14); color:var(--text);
+       padding:12px 14px; border-radius:14px; box-shadow:var(--shadow); opacity:0; pointer-events:none;
+       transition:.25s opacity, .25s transform; max-width:min(560px, calc(100% - 30px));"></div>
+
+  <script>
+    // Mobile nav
+    const burger = document.getElementById('burger');
+    const mobileNav = document.getElementById('mobileNav');
+    if (burger) {
+      burger.addEventListener('click', () => {
+        const open = mobileNav.style.display === 'block';
+        mobileNav.style.display = open ? 'none' : 'block';
+      });
+    }
+    // Close mobile nav on click
+    [...document.querySelectorAll('#mobileNav a')].forEach(a=>{
+      a.addEventListener('click', ()=> mobileNav.style.display='none');
+    });
+
+    // Reveal on scroll
+    const revealEls = [...document.querySelectorAll('.reveal')];
+    const io = new IntersectionObserver((entries)=>{
+      entries.forEach(e=>{
+        if(e.isIntersecting) e.target.classList.add('in');
+      });
+    }, {threshold: .12});
+    revealEls.forEach(el=>io.observe(el));
+
+    // Year
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Toast
+    const toastEl = document.getElementById('toast');
+    let toastT = null;
+    function toast(msg){
+      toastEl.textContent = msg;
+      toastEl.style.opacity = '1';
+      toastEl.style.transform = 'translateX(-50%) translateY(-2px)';
+      clearTimeout(toastT);
+      toastT = setTimeout(()=>{
+        toastEl.style.opacity = '0';
+        toastEl.style.transform = 'translateX(-50%) translateY(6px)';
+      }, 2200);
+    }
+    window.toast = toast;
+  </script>
+</body>
+</html>
